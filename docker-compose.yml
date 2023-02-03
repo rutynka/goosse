@@ -1,0 +1,15 @@
+version: "3.4"
+services:
+  go-sse:
+      build:
+        context: .
+        target: dev
+  #    env_file: ./config/dockerfiles/node/.env
+      volumes:
+        - ./src:/usr/src
+      container_name: go-sse
+      restart: always
+      environment:
+        - dev=true
+      ports:
+        - "4004:4004"
